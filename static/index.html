@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    
+    <div id="landing-page">
+        <nav> 
+            <a href="/"><img src="" alt="logo"></a>
+            <ul>
+                <li><a href="">Sign up</a></li>
+                <li><a href="">Log in</a></li>
+                <!-- if logged in hide above and show below: -->
+                <li><a href="">VenueList</a></li>
+                <li><a href="">UserList</a></li>
+                <li><a href="">Log out</a></li>
+                <li><a href="">username</a></li>
+            </ul>
+        </nav>
+        <h1>Venue Spex</h1>
+        <h2>Find up-to-date technical specifications for venues all around the city.</h2>
+        <div id="carousel-container">carousel here</div>
+    </div>
+
+    <div id="signup-page">
+        
+        <div id="login-info">
+            <h3>LOG IN</h3>
+            <form id="login-form">
+                <input type="text" name="work_email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Log In">
+            </form>
+        </div>
+
+        <div id="signup-info">
+            <h3>SIGN UP</h3>
+            <form id="user-form">
+                <input type="text" name="full_name" placeholder="Full Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+            </form>
+            <form id="role-form">
+                <p>Choose your role:</p>
+                <input type="radio" name="venue_manager" value="Venue Manager">Venue Manager
+                <input type="radio" name="tour_manager" value="Tour Manager">Tour Manager
+                <input type="radio" name="musician" value="Musician">Musician
+            </form>
+            <form id="contact-form">  
+                <p>Public Contact Info:</p>
+                <input type="email" name="work_email" placeholder="Work Email">
+                <input type="number" name="phone_number" placeholder="Work Phone Number">
+            </form>
+            <input type="submit" value="Sign Up">
+        </div>
+
+    </div>
+
+    <div id="venue-list">
+        <h3>VENUE LIST</h3>
+        <ul>
+            <li>venue</li>
+            <li>venue</li>
+            <li>venue</li>
+        </ul>
+    </div>
+
+    <div id="venue-detail">
+        <div id="venue-carousel">carousel venue pics here</div>
+        <nav id="dept-nav">
+            Venue Departments:
+            <ul>
+                <li>Sound</li>
+                <li>Electrical</li>
+                <li>Lights</li>
+                <li>Stage</li>
+                <li>Backstage</li>
+            </ul>
+        </nav>
+
+        <p>venue name here</p><button>EDIT</button>
+        <p>venue hours of operation here</p><button>EDIT</button>
+        <p>venue manager name here</p><button>EDIT</button>
+        <p>venue manager contact email here</p><button>EDIT</button>
+    </div>
+
+    <div id="create-venue-page">
+        <h3>CREATE VENUE</h3>
+        <form id="venue-form">
+            <input type="text" name="venue_name" placeholder="Venue Name">
+            <input type="file" name="venue_pic">
+        </form>
+    </div>
+
+    <div id="user-list">
+        <h3>USER LIST (for development only)</h3>
+        <ul>
+            <li>user</li>
+            <li>user</li>
+            <li>user</li>
+        </ul>
+    </div>
+
+    <div id="user-profile">
+        <p>user info here</p>
+        <button>EDIT</button>
+    </div>
+
+    <footer>
+        <p>
+            (c) Sofia Aguirre 2018 | 
+            <a href="https://github.com/sofia-aguirre/venue-spex">GitHub</a> 
+        </p>
+    </footer>
+</body>
+</html>
