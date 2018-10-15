@@ -6,7 +6,6 @@
 <h4>{{ venue.location }}</h4>
 <h3>Manager: <a href="{% url 'user_detail' pk=venue.manager.pk %}">{{ venue.manager }}</a></h3>
 
-
 <h5><a href={% url 'venue_sound' pk=venue.pk %}>Sound Department</a></h5>
 <h5><a href={% url 'venue_lights' pk=venue.pk %}>Lights Department</a></h5>
 <h5><a href={% url 'venue_electrical' pk=venue.pk %}>Power Department</a></h5>
@@ -14,5 +13,8 @@
 <h5><a href={% url 'venue_back' pk=venue.pk %}>Backstage/Artist Accom Department</a></h5>
 
 <p>Click here to claim this venue</p>
+
+{% block dept %}
+{% endblock %}
 
 {% endblock %}
