@@ -21,10 +21,13 @@ class VenueForm(ModelForm):
 
     class Meta:
         model = Venue
-        fields = ('title', 'location', 'houseSoundInstalled', 
-        'houseElectricInstalled', 'houseLightsInstalled', 'houseStageInstalled', 
-        'houseBackInstalled', 'houseSoundAvail', 'houseElectricAvail',
-        'houseLightsAvail', 'houseStageAvail', 'houseBackAvail')
+        fields = ('title', 'location', 'parking_details',
+        'parking_details', 'audience_diagram', 'audience_details', 
+        'houseSoundInstalled','houseSoundAvail', 'sound_diagram', 
+        'houseElectricInstalled', 'houseElectricAvail', 'electrics_diagram',
+        'houseLightsInstalled', 'houseLightsAvail', 'lights_diagram',
+        'houseStageInstalled', 'houseStageAvail', 'stage_diagram',
+        'houseBackInstalled', 'houseBackAvail','backstage_diagram',)
         # widgets = {
         #     'challange_date': DateInput(),
         #     'challange_time': TimeInput(),

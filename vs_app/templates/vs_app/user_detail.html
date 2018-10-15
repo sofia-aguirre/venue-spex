@@ -2,21 +2,38 @@
 
 {% block content %}
 
-<p>{{user.full_name}}</p> <a href="{% url 'user_edit' pk=user.pk %}">Edit your profile</a>
+<h2>{{custom_user.full_name}}</h2> 
+{% if user.username == request.user.username%}
+    <a href="{% url 'user_edit' pk=user.pk %}">Edit your profile</a>
+{% endif %}
+
 <p>user deets here</p>
 
-<p>List of this user's Venues</p>
+<p>List of this {{custom_user.full_name}}'s Venues</p>
 <ul>
 {% for venue in venues %}
-    <li><a href={% url 'venue_detail' pk=venue.pk %}>{{ venue.title }}</a></li>
-    {% if venue.manager.user.username == user_is_making_req.username %}
-        <a href={% url 'venue_delete' pk=venue.pk %}>(delete venue)</a>
+    {% if user.pk == venue.manager.pk %}
+        <li>
+            Name: <a href={% url 'venue_detail' pk=venue.pk %}>{{ venue.title }}</a>
+            {% if user.username == request.user.username %}
+            <a href={% url 'venue_edit' pk=venue.pk %}>(edit venue)</a>
+            <a href={% url 'venue_delete' pk=venue.pk %}>(delete venue)</a>
+            {% endif %}
+        </li>
     {% endif %}
 {% endfor %}
 </ul>
 
-<a href="{% url 'user_delete' pk=user.pk %}">DELETE YOURSELF (handle are you sure? this will delete all your venues)</a>
+{% if user.username == request.user.username%}
+    <a href="{% url 'venue_create' %}"><h3>click here to CREATE a venue</h3></a>
+{% endif %}
+
+{% if user.username == request.user.username%}
+    <a href="{% url 'user_delete' pk=user.pk %}">DELETE YOURSELF (handle are you sure? this will delete all your venues)</a>
+{% endif %}
 
 {% endblock %}
 
-<!-- user_is_making_req -->
+<!-- venue.manager.user.username -->
+<!-- user_is_making_req.username -->
+<!-- custom_user.username -->

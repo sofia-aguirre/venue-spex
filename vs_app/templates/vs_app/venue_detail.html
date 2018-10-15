@@ -4,5 +4,8 @@
         
 <h2>{{ venue.title }}</h2>
 <h4>{{ venue.location }}</h4>
+<h3>Manager: <a href="{% url 'user_detail' pk=venue.manager.pk %}">{{ venue.manager }}</a></h3>
+
+<p>Click here to claim this venue</p>
 
 {% endblock %}

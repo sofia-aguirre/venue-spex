@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 
@@ -60,10 +61,12 @@ def log_out(request):
     return redirect('landing')
 
 # USER CRUD FUNCTIONS
+# @staff_member_required
 def user_list(request):
     users = CustomUser.objects.all()
     return render(request, 'vs_app/user_list.html', {'users': users})
 
+@login_required
 def user_detail(request, pk):
     user_is_making_req = request.user
     user = User.objects.get(id=pk)
@@ -83,6 +86,7 @@ def user_edit(request, pk):
         customuser_form = CustomUserForm(instance=user)
     return render(request, 'vs_app/user_edit.html', {'customuser_form': customuser_form, 'user': user})
 
+@login_required
 def user_delete(request, pk):
     CustomUser.objects.get(id=pk).delete()
     return redirect('user_list')
@@ -113,8 +117,19 @@ def venue_create(request):
         form = VenueForm()
     return render(request, 'vs_app/venue_create.html', {'form': form})
 
-# venue edit goes here
+@login_required
+def venue_edit(request, pk):
+    venue = Venue.objects.get(pk=pk)
+    if request.method == "POST":
+        venue_form = VenueForm(request.POST, instance=venue)
+        if venue_form.is_valid():
+            venue = venue_form.save()
+            return redirect('venue_detail', pk=venue.pk)
+    else:
+        venue_form = VenueForm(instance=venue)
+    return render(request, 'vs_app/venue_edit.html', {'venue_form': venue_form})
 
+@login_required
 def venue_delete(request, pk):
     Venue.objects.get(id=pk).delete()
     return redirect('venue_list')

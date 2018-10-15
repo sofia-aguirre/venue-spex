@@ -9,14 +9,15 @@
         <a href="/"><h1>VenueSpex</h1></a>
         <nav>
             {% if user.is_authenticated %}
-            <p>Welcome back, {{request.user.username}}</p>
+            <p>Welcome back, 
+                <a href="{% url 'user_detail' pk=request.user.pk %}">{{request.user.username}}</a></p>
             <a href="/logout">Logout</a>
+            <a href="/venues">VenueList</a>
+            <a href="/users">UserList</a> 
             {% else %}
             <a href="/login">Login</a>
             <a href="/signup">SignUp</a>
             {% endif %}
-            <a href="/venues">VenueList</a>
-            <a href="/users">UserList</a>
             <a href="/">Home</a>
         </nav>
         {% block content %}
