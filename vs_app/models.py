@@ -11,7 +11,7 @@ class CustomUser(models.Model):
     profile_pic = models.ImageField(upload_to='profile_pics',blank=True, null=True)
     full_name = models.CharField(max_length=100)
     contact_email = models.CharField(max_length=100)
-    contact_phone = models.IntegerField()
+    contact_phone = models.CharField(max_length=17)
 
     def __str__(self):
         return self.full_name
@@ -22,30 +22,30 @@ class Venue(models.Model):
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     parking_diagram = models.ImageField(upload_to='parking_diagram',blank=True, null=True)
-    parking_details = models.TextField()
+    parking_details = models.TextField(blank=True)
     # audience/house space
     audience_diagram = models.ImageField(upload_to='audience_diagram',blank=True, null=True)
-    audience_details= models.TextField()
+    audience_details= models.TextField(blank=True)
     # sound department
     sound_diagram = models.ImageField(upload_to='sound_diagram',blank=True, null=True)
-    houseSoundInstalled = models.TextField()
-    houseSoundAvail = models.TextField()
+    houseSoundInstalled = models.TextField(blank=True)
+    houseSoundAvail = models.TextField(blank=True)
     # electric department
     electrics_diagram = models.ImageField(upload_to='electrics_diagram',blank=True, null=True)
-    houseElectricInstalled = models.TextField()
-    houseElectricAvail = models.TextField()
+    houseElectricInstalled = models.TextField(blank=True)
+    houseElectricAvail = models.TextField(blank=True)
     # lights department
     lights_diagram = models.ImageField(upload_to='lights_diagram',blank=True, null=True)
-    houseLightsInstalled = models.TextField()
-    houseLightsAvail = models.TextField()
+    houseLightsInstalled = models.TextField(blank=True)
+    houseLightsAvail = models.TextField(blank=True)
     # stage department
     stage_diagram = models.ImageField(upload_to='stage_diagram',blank=True, null=True)
-    houseStageInstalled = models.TextField()
-    houseStageAvail = models.TextField()
+    houseStageInstalled = models.TextField(blank=True)
+    houseStageAvail = models.TextField(blank=True)
     # artist accommodations / storage department
     backstage_diagram = models.ImageField(upload_to='backstage_diagram',blank=True, null=True)
-    houseBackInstalled = models.TextField()
-    houseBackAvail = models.TextField()
+    houseBackInstalled = models.TextField(blank=True)
+    houseBackAvail = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
