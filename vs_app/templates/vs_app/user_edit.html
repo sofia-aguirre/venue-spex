@@ -1,0 +1,24 @@
+{% extends "vs_app/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+
+        <p>if logged in user = this user pk, then show this</p>
+        <h1>Update Here</h1>
+        
+        <h3>update here</h3>
+        <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        userform:
+        {{user_form.as_p }}
+        custom user form:
+        {{ customuser_form.as_p }}
+            <input type="submit" name="" value="Update" class = 'zoom'>
+        </form>
+        
+        
+    </div>
+</div>
+{% endblock %}

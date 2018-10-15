@@ -1,0 +1,22 @@
+{% extends 'vs_app/base.html' %}
+
+{% block content %}
+
+<p>{{user.full_name}}</p> <a href="{% url 'user_edit' pk=user.pk %}">Edit your profile</a>
+<p>user deets here</p>
+
+<p>List of this user's Venues</p>
+<ul>
+{% for venue in venues %}
+    <li><a href={% url 'venue_detail' pk=venue.pk %}>{{ venue.title }}</a></li>
+    {% if venue.manager.user.username == user_is_making_req.username %}
+        <a href={% url 'venue_delete' pk=venue.pk %}>(delete venue)</a>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<a href="{% url 'user_delete' pk=user.pk %}">DELETE YOURSELF (handle are you sure? this will delete all your venues)</a>
+
+{% endblock %}
+
+<!-- user_is_making_req -->

@@ -14,6 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR,'vs_app/templates')
+STATIC_DIR = os.path.join(BASE_DIR,'vs_app/static')
+MEDIA_DIR = os.path.join(BASE_DIR,'vs_app/media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -70,6 +73,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vs_django.wsgi.application'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'vs@gmail.com'
+# EMAIL_HOST_PASSWORD = 'r4'
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -119,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+LOGIN_URL = '/user_login'

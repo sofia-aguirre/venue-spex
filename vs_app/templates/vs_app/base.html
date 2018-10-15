@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>VenueSpex</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <a href="/"><h1>VenueSpex</h1></a>
+        <nav>
+            {% if user.is_authenticated %}
+            <p>Welcome back, {{request.user.username}}</p>
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/login">Login</a>
+            <a href="/signup">SignUp</a>
+            {% endif %}
+            <a href="/venues">VenueList</a>
+            <a href="/users">UserList</a>
+            <a href="/">Home</a>
+        </nav>
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'vs_app/base.html' %}
+
+{% block content %}
+
+<h2>This is a list of All Venues <a href="">(+)</a></h2>
+<a href="{% url 'venue_create' %}">click here to CREATE a venue</a>
+<ul>
+    {% for venue in venues %}
+        <li>
+            <a href="{% url 'venue_detail' pk=venue.pk %}">{{ venue.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
