@@ -1,0 +1,17 @@
+{% extends 'vs_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        
+<h3>STAGE/RIGGING DEPT</h3>
+
+{% if venue.stage_diagram %}
+    <img src="{{ venue.stage_diagram.url }}" width='100px' height='100px' alt="">
+    {% else %}
+    <p>no stage/rigging diagram available</p>
+{% endif %}
+
+<p>equipment installed: {{venue.houseStageInstalled}}</p>
+<p>equipment available for rent: {{venue.houseStageAvail}}</p>
+
+{% endblock %}

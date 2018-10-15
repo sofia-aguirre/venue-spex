@@ -1,0 +1,17 @@
+{% extends 'vs_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        
+<h3>SOUND DEPT</h3>
+
+{% if venue.sound_diagram %}
+    <img src="{{ venue.sound_diagram.url }}" width='100px' height='100px' alt="">
+    {% else %}
+    <p>no sound image available</p>
+{% endif %}
+
+<p>sound installed: {{venue.houseSoundInstalled}}</p>
+<p>sound equipment available for rent: {{venue.houseSoundAvail}}</p>
+
+{% endblock %}

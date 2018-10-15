@@ -28,8 +28,5 @@ class VenueForm(ModelForm):
         'houseLightsInstalled', 'houseLightsAvail', 'lights_diagram',
         'houseStageInstalled', 'houseStageAvail', 'stage_diagram',
         'houseBackInstalled', 'houseBackAvail','backstage_diagram',)
-        # widgets = {
-        #     'challange_date': DateInput(),
-        #     'challange_time': TimeInput(),
-        # }
+        # widgets = {}
 

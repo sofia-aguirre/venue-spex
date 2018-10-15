@@ -101,17 +101,36 @@ def venue_detail(request, pk):
     venue = Venue.objects.get(id=pk)
     return render(request, 'vs_app/venue_detail.html', {'venue': venue})
 
+def venue_sound(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_sound.html', {'venue': venue})
+
+def venue_lights(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_lights.html', {'venue': venue})
+
+def venue_electrical(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_electrical.html', {'venue': venue})
+
+def venue_stage(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_stage.html', {'venue': venue})
+
+def venue_back(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_back.html', {'venue': venue})
+
 @login_required
 def venue_create(request):
     currentUser = User.objects.get(id= request.user.pk)
-    form = VenueForm(request.POST)
+    form = VenueForm(request.POST, request.FILES)
     form.manager = currentUser
     if request.method == 'POST':
         if form.is_valid():
             venue = form.save(commit = False)
             venue.manager = CustomUser.objects.get(id= request.user.pk)
             venue.save() 
-            # email_challenge(request, challenger, challengee, challenge)
             return redirect('venue_detail', venue.pk)
     if request.method == 'GET':
         form = VenueForm()

@@ -21,29 +21,29 @@ class Venue(models.Model):
     manager = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="venue")
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    parking_diagram = models.ImageField(upload_to='parking_diagram',blank=True, null=True)
+    parking_diagram = models.ImageField(upload_to='parking_diagrams',blank=True, null=True)
     parking_details = models.TextField(blank=True)
     # audience/house space
-    audience_diagram = models.ImageField(upload_to='audience_diagram',blank=True, null=True)
+    audience_diagram = models.ImageField(upload_to='audience_diagrams',blank=True, null=True)
     audience_details= models.TextField(blank=True)
     # sound department
-    sound_diagram = models.ImageField(upload_to='sound_diagram',blank=True, null=True)
+    sound_diagram = models.ImageField(upload_to='sound_diagrams',blank=True, null=True)
     houseSoundInstalled = models.TextField(blank=True)
     houseSoundAvail = models.TextField(blank=True)
     # electric department
-    electrics_diagram = models.ImageField(upload_to='electrics_diagram',blank=True, null=True)
+    electrics_diagram = models.ImageField(upload_to='electrics_diagrams',blank=True, null=True)
     houseElectricInstalled = models.TextField(blank=True)
     houseElectricAvail = models.TextField(blank=True)
     # lights department
-    lights_diagram = models.ImageField(upload_to='lights_diagram',blank=True, null=True)
+    lights_diagram = models.ImageField(upload_to='lights_diagrams',blank=True, null=True)
     houseLightsInstalled = models.TextField(blank=True)
     houseLightsAvail = models.TextField(blank=True)
     # stage department
-    stage_diagram = models.ImageField(upload_to='stage_diagram',blank=True, null=True)
+    stage_diagram = models.ImageField(upload_to='stage_diagrams',blank=True, null=True)
     houseStageInstalled = models.TextField(blank=True)
     houseStageAvail = models.TextField(blank=True)
     # artist accommodations / storage department
-    backstage_diagram = models.ImageField(upload_to='backstage_diagram',blank=True, null=True)
+    backstage_diagram = models.ImageField(upload_to='backstage_diagrams',blank=True, null=True)
     houseBackInstalled = models.TextField(blank=True)
     houseBackAvail = models.TextField(blank=True)
 
