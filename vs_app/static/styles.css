@@ -1,98 +1,72 @@
+/* GLOBAL */
 body {
     font-family: 'Helvetica Neue', sans-serif;
     max-width: 50em;
     margin: auto;
     padding: 2em 1em;
+    color: black;
+    /* background-image: url(./images/bkg.png); */
+    /* background-color: rgb(54, 54, 55); */
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.all-the-header {
+
+}
+
+header {
+    /* background-color: rgba(40, 40, 40, 0.673); */
+    /* text-decoration: none; */
+    color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a, header a, a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
 nav a {
-    border: 1px solid black;
-    margin: .5em;
-    padding: .5em;
-    background-color: #eeeeee;
+    color: inherit;
+    text-decoration: none;
 }
 
 nav a:hover {
-    background-color: orange;
-    color: blue;
+    color: rgb(48, 191, 8);
 }
 
-a,
-a:visited {
-    text-decoration: none;
-    color: blue;
+.landing-desc {
+    text-align: center;
 }
 
-a:hover {
-    background-color: #ccc;
+.landing-container {
+    display: flex;
+    justify-content: space-around;
 }
 
-ul {
-    list-style-type: none;
+.landing-container div {
+    width: 50%;
 }
 
-li {
-    margin: .25em;
+.block-content {
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    font: inherit;
-    color: inherit;
-    letter-spacing: -.05em;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-}
-
-h2>a {
-    font-size: .75em;
-}
-
-input {
-    display: block;
-    margin: 5px 0 20px 0;
-    padding: 9px;
-    border: solid 1px black;
-    width: 300px;
-    background: whitesmoke;
-}
-
-input[type=submit],
-a.delete {
-    width: auto;
-    padding: 9px 15px;
-    background-color: gray;
-    border: 0;
-    font-size: 14px;
-    color: #FFFFFF;
-}
-
-a.delete {
-    background-color: red;
-}
-
-.artist-photo {
-    width: 400px;
-}
-
-span.nationality {
-    font-size: .5em;
-}
-
-.user-info {
-    float: right;
-}
-
-a.fav {
-    text-decoration: none;
-    color: red;
-}
-
-a.no-fav {
-    text-decoration: none;
-    color: black;
-}
-
-.fav:visited,
-.no-fav:visited {
-    text-decoration: none;
+.venue-form textarea {
+    resize: none;
 }

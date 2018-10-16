@@ -1,16 +1,18 @@
 {% extends 'vs_app/base.html' %}
 {% block content %}
-<div class="container">
-        <div class="jumbotron">
-            <h1>Login here :</h1>
-            <form enctype="multipart/form-data" method="POST">
-                {% csrf_token %}
-                Username:
-                {{user_form.username }}
-                Pass:
-                {{user_form.password }}
-                    <input type="submit" name="" value="Login" class = 'zoom'>
-                </form>
-            </div>
-        </div>
+
+<div class="login-desc">
+    <h3>Log In</h3>
+    <h4>Please enter your login details</h4>
+</div>
+    
+<form class="login-form" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    Username:
+    {{user_form.username }}
+    Pass:
+    {{user_form.password }}
+    <input type="submit" name="" value="Login" class = 'zoom'>
+</form>
+
 {% endblock %}

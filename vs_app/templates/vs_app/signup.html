@@ -3,16 +3,19 @@
 {% block content %}
         
 {% if signedup %}
-        <h1>Thank you for registering!</h1>
+<div class="thank-you">
+    <h3>Thank you for registering!</h3>
+    <p>Please log in.</p>
+</div>
 {% else %}
-    <h1>Register Here</h1>
-        <h3>Just fill out the form.</h3>
+    <h3>Sign Up</h3>
+        <h4>Please fill out this form</h4>
     <div class='registeringForm'>
         <form enctype="multipart/form-data" method="POST" id='formOne'>
         {% csrf_token %}
         {{user_form.as_p }}
         {{customuser_form.as_p }}
-        <input type="submit" name="" value="Register" class = 'zoom'>
+        <input type="submit" name="" value="Sign Up" class = 'zoom'>
         </form>
     {% endif %}
     </div>

@@ -2,17 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
-
-<h2>Comment for {{ comment.venue }}</h2>
-    <ul>
-        <li>{{ comment.commenter }}
-            {{ comment.title }}
-            {{ comment.body }}</li>
-    </ul>
-    
-    
+<div>
+    <h2>Comment for {{ comment.venue }}</h2>
+        <ul>
+            <li>{{ comment.commenter }}
+                {{ comment.title }}
+                {{ comment.body }}</li>
+        </ul>
+</div>
     {% endblock %}
-    
-    
-    <!--  if the comment.venue == venue.title  -->
-    <!-- endif  -->

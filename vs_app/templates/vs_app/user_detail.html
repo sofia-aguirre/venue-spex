@@ -8,9 +8,13 @@
     <a href="{% url 'user_edit' pk=user.pk %}">Edit your profile</a>
 {% endif %}
 
-<p>user deets here</p>
+<p>Contact phone: {{custom_user.contact_phone}}</p> 
+<p>Contact email: {{custom_user.contact_email}}</p> 
 
-<p>List of this {{custom_user.full_name}}'s Venues</p>
+<h3>{{custom_user.full_name}}'s Venues</h3>
+{% if user.username == request.user.username%}
+    <a href="{% url 'venue_create' %}"><h4>{{user.username}}, click here to CREATE a venue</h4></a>
+{% endif %}
 <ul>
 {% for venue in venues %}
     {% if user.pk == venue.manager.pk %}
@@ -25,12 +29,9 @@
 {% endfor %}
 </ul>
 
-{% if user.username == request.user.username%}
-    <a href="{% url 'venue_create' %}"><h3>click here to CREATE a venue</h3></a>
-{% endif %}
+{% endblock %}
 
+<!-- will implement this later -->
 {% if user.username == request.user.username%}
     <a href="{% url 'user_delete' pk=user.pk %}">DELETE YOURSELF (handle are you sure? this will delete all your venues)</a>
 {% endif %}
-
-{% endblock %}
