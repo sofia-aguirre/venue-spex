@@ -1,0 +1,17 @@
+{% extends 'vs_app/venue_detail.html' %}
+{% load staticfiles %}
+
+{% block dept %}
+        
+<h3>LIGHTS DEPT</h3>
+
+{% if venue.lights_diagram %}
+    <img src="{{ venue.lights_diagram.url }}" width='100px' height='100px' alt="">
+    {% else %}
+    <p>no lighting diagram available</p>
+{% endif %}
+
+<p>lights installed: {{venue.houseLightsInstalled}}</p>
+<p>lights equipment available for rent: {{venue.houseLightsAvail}}</p>
+
+{% endblock %}

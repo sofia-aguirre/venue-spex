@@ -1,14 +1,42 @@
 {% extends 'vs_app/base.html' %}
 
 {% block content %}
-<div class='container'>
-    <div class='jumbotron'>
-    <h3>Make a venue</h3>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Create" />
-    </form>
+<div class=''>
+    <div class=''>
+        <h3>Make a profile for each venue you manage</h3>
+        <h4>Try to fill out the form as much as possible</h4>
+        <form class="venue-form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h4>Let's start with the basics</h4>
+            <p>Venue Name: {{ form.title }}</p>
+            <p>Location: {{ form.location }}</p>
+            <p>Parking/Load-in Diagram: {{ form.parking_diagram }}</p>
+            <p>Parking/Load-in Details: {{ form.parking_details }}</p>
+            <p>Front of House / Seating Diagram: {{ form.audience_diagram }}</p>
+            <p>Front of House / Seating Details: {{ form.audience_details }}</p>
+            <h4>Departments</h4>
+            <h5>Sound</h5>
+            <p>Sound Diagram: {{ form.sound_diagram }}</p>
+            <p>Gear Installed: {{ form.houseSoundInstalled }}</p>
+            <p>Gear Available: {{ form.houseSoundAvail }}</p>
+            <h5>Lights</h5>
+            <p>Lighting Diagram: {{ form.lights_diagram }}</p>
+            <p>Gear Installed: {{ form.houseLightsInstalled }}</p>
+            <p>Gear Available: {{ form.houseLightsAvail }}</p>
+            <h5>Power</h5>
+            <p>Electrical Diagram: {{ form.electrics_diagram }}</p>
+            <p>Circuits / LX-Battens Installed: {{ form.houseElectricInstalled }}</p>
+            <p>Gear Available: {{ form.houseElectricAvail }}</p>
+            <h5>Stage</h5>
+            <p>Stage/Rigging Diagram: {{ form.stage_diagram }}</p>
+            <p>Stage / Rigging Installed: {{ form.houseStageInstalled }}</p>
+            <p>Gear Available: {{ form.houseStageAvail }}</p>
+            <h5>Backstage / Artist Accommodations</h5>
+            <p>Backstage Diagram: {{ form.backstage_diagram }}</p>
+            <p>Facilities: {{ form.houseBackInstalled }}</p>
+            <p>Gear Available: {{ form.houseBackAvail }}</p>
+            <input type="submit" value="Create" />
+        </form>
     </div>
-    </div>
+</div>
 {% endblock %}

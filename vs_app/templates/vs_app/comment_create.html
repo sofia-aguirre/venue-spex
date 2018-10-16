@@ -1,0 +1,17 @@
+{% extends 'vs_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        
+<div class=''>
+    <div class=''>
+    <h3>Create a comment</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <input type="submit" value="Create" />
+    </form>
+    </div>
+    </div>
+
+{% endblock %}

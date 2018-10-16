@@ -1,0 +1,17 @@
+{% extends 'vs_app/venue_detail.html' %}
+{% load staticfiles %}
+
+{% block dept %}
+        
+<h3>BACKSTAGE/ARTIST ACCOMMODATIONS DEPT</h3>
+
+{% if venue.backstage_diagram %}
+    <img src="{{ venue.backstage_diagram.url }}" width='100px' height='100px' alt="">
+    {% else %}
+    <p>no backstage diagram available</p>
+{% endif %}
+
+<p>Backstage offers: {{venue.houseBackInstalled}}</p>
+<p>Available for use: {{venue.houseBackAvail}}</p>
+
+{% endblock %}

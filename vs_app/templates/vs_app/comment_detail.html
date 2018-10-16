@@ -1,0 +1,13 @@
+{% extends 'vs_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div>
+    <h2>Comment for {{ comment.venue }}</h2>
+        <ul>
+            <li>{{ comment.commenter }}
+                {{ comment.title }}
+                {{ comment.body }}</li>
+        </ul>
+</div>
+    {% endblock %}
