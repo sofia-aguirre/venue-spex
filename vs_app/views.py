@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from .forms import UserForm, CustomUserForm, VenueForm
+from .forms import UserForm, CustomUserForm, VenueForm, CommentForm
 from django.http import HttpResponse
 from .models import *
 from django.contrib.auth import authenticate, login, logout
@@ -99,7 +99,10 @@ def venue_list(request):
 
 def venue_detail(request, pk):
     venue = Venue.objects.get(id=pk)
-    return render(request, 'vs_app/venue_detail.html', {'venue': venue})
+    # comments = Comment.objects.get(title=venues.title)
+    return render(request, 'vs_app/venue_detail.html', {'venue': venue,
+    # 'comments':comments
+    })
 
 def venue_sound(request, pk):
     venue = Venue.objects.get(id=pk)
@@ -152,3 +155,44 @@ def venue_edit(request, pk):
 def venue_delete(request, pk):
     Venue.objects.get(id=pk).delete()
     return redirect('venue_list')
+
+# COMMENT CRUD FUNCTIONS
+def comment_list(request):
+    comments = Comment.objects.all()
+    venues = Venue.objects.all()
+    return render(request, 'vs_app/comment_list.html', {'comments': comments, 'venues': venues})
+
+def comment_detail(request, pk):
+    comment = Comment.objects.get(id=pk)
+    return render(request, 'vs_app/comment_detail.html', {'comment': comment})
+
+
+@login_required
+def comment_create(request):
+    comment_form = CommentForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        if comment_form.is_valid():
+            comment = comment_form.save(commit = False)
+            comment.commenter = CustomUser.objects.get(id= request.user.pk)
+            comment.save() 
+            return redirect('comment_detail', comment.pk)
+    if request.method == 'GET':
+        comment_form = CommentForm()
+    return render(request, 'vs_app/comment_create.html', {'comment_form': comment_form})
+
+@login_required
+def comment_edit(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST, instance=comment)
+        if comment_form.is_valid():
+            comment = comment_form.save()
+            return redirect('comment_detail', pk=comment.pk)
+    else:
+        comment_form = CommentForm(instance=comment)
+    return render(request, 'vs_app/comment_edit.html', {'comment_form': comment_form})
+
+@login_required
+def comment_delete(request, pk):
+    Comment.objects.get(id=pk).delete()
+    return redirect('comment_list')

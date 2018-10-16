@@ -1,0 +1,19 @@
+{% extends "vs_app/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>comment update</h1>
+        
+        <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        
+        {{ comment_form.as_p }}
+            <input type="submit" name="" value="Update" class = 'zoom'>
+        </form>
+        
+        
+    </div>
+</div>
+{% endblock %}

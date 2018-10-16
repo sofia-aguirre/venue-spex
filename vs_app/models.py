@@ -50,4 +50,12 @@ class Venue(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    commenter = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="comment")
+    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, related_name="comment")
+    comment_pic = models.ImageField(upload_to='comment_pics',blank=True, null=True)
+    title = models.CharField(max_length=100)
+    body = models.TextField()
 
+    def __str__(self):
+        return self.title

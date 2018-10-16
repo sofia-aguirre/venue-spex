@@ -6,3 +6,4 @@ from vs_app.models import *
 
 admin.site.register(CustomUser)
 admin.site.register(Venue)
+admin.site.register(Comment)

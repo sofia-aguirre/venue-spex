@@ -1,0 +1,18 @@
+{% extends 'vs_app/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h2>Comment for {{ comment.venue }}</h2>
+    <ul>
+        <li>{{ comment.commenter }}
+            {{ comment.title }}
+            {{ comment.body }}</li>
+    </ul>
+    
+    
+    {% endblock %}
+    
+    
+    <!--  if the comment.venue == venue.title  -->
+    <!-- endif  -->

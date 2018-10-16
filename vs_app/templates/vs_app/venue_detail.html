@@ -17,4 +17,12 @@
 {% block dept %}
 {% endblock %}
 
+<a href={% url 'comment_create' %}><h3>click here to CREATE a comment</h3></a>
+
+<h5><a href={% url 'comment_list' %}>Venue comments</a></h5>
+
+
+{% block comments %}
+{% endblock %}
+
 {% endblock %}
