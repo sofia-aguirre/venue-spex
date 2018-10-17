@@ -1,28 +1,38 @@
 {% extends 'vs_app/base.html' %}
 
 {% block content %}
-        
-<h2>{{ venue.title }}</h2>
-<h4>{{ venue.location }}</h4>
-<h3>Manager: <a href="{% url 'user_detail' pk=venue.manager.pk %}">{{ venue.manager }}</a></h3>
 
-<h5><a href={% url 'venue_sound' pk=venue.pk %}>Sound Department</a></h5>
-<h5><a href={% url 'venue_lights' pk=venue.pk %}>Lights Department</a></h5>
-<h5><a href={% url 'venue_electrical' pk=venue.pk %}>Power Department</a></h5>
-<h5><a href={% url 'venue_stage' pk=venue.pk %}>Stage/Rigging Department</a></h5>
-<h5><a href={% url 'venue_back' pk=venue.pk %}>Backstage/Artist Accom Department</a></h5>
+<div class="venue-detail-head">
+    <h1>{{ venue.title }}</h1>
+    <h4>{{ venue.location }}</h4>
+    <h4>Venue Contact: <a href="{% url 'user_detail' pk=venue.manager.pk %}">{{ venue.manager }}</a></h4>
+</div>
 
-<p>Click here to claim this venue</p>
+<img id="venue-pic" src="{{ venue.venue_pic.url }}"/>
 
-{% block dept %}
-{% endblock %}
+<ul class="venue-nav">
+    <li><a href={% url 'venue_logistics' pk=venue.pk %}>Parking/FoH</a></li>
+    <li><a href={% url 'venue_sound' pk=venue.pk %}>Sound</a></li>
+    <li><a href={% url 'venue_lights' pk=venue.pk %}>Lights</a></li>
+    <li><a href={% url 'venue_electrical' pk=venue.pk %}>Power</a></li>
+    <li><a href={% url 'venue_stage' pk=venue.pk %}>Stage/Rigging</a></li>
+    <li><a href={% url 'venue_back' pk=venue.pk %}>Backstage/Artist Accom</a></li>
+</ul>
 
-<a href={% url 'comment_create' %}><h3>click here to CREATE a comment</h3></a>
+<div class="block-dept-container">
+    {% block dept %}
+    {% endblock %}
+</div>
 
-<h5><a href={% url 'comment_list' %}>Venue comments</a></h5>
+<div id="venue-detail-comments-section">
+    <a href={% url 'comment_create' %}><h4>Got something to say about {{venue.title}}?</h4></a>
+    <p><a href={% url 'comment_list' %}>See all venue comments</a></p>
+    <em><p><a href="mailto:venue.spex@gmail.com">(email admin to claim this venue)</a></p></em>
+
+    {% block comments %}
+    {% endblock %}
+</div>
 
 
-{% block comments %}
-{% endblock %}
 
 {% endblock %}

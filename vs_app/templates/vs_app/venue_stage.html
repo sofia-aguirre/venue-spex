@@ -5,13 +5,18 @@
         
 <h3>STAGE/RIGGING DEPT</h3>
 
-{% if venue.stage_diagram %}
-    <img src="{{ venue.stage_diagram.url }}" width='100px' height='100px' alt="">
-    {% else %}
-    <p>no stage/rigging diagram available</p>
-{% endif %}
+<div class="dept-details">
+    <h4>Stage + Rigging Plot:</h4>
+    {% if venue.stage_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.stage_diagram.url }}" alt="">
+        {% else %}
+        <p>no stage/rigging diagram available</p>
+    {% endif %}
 
-<p>equipment installed: {{venue.houseStageInstalled}}</p>
-<p>equipment available for rent: {{venue.houseStageAvail}}</p>
+    <h4>Stage details + Rigging specs:</h4>
+        <p>{{venue.houseStageInstalled}}</p>
+    <h4>Extra stage/rigging gear available:</h4>
+        <p>{{venue.houseStageAvail}}</p>
+</div>
 
 {% endblock %}

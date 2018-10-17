@@ -10,6 +10,7 @@
             <h4>Let's start with the basics</h4>
             <p>Venue Name: {{ form.title }}</p>
             <p>Location: {{ form.location }}</p>
+            <p>The best venue photo on Earth: {{ form.venue_pic }}</p>
             <p>Parking/Load-in Diagram: {{ form.parking_diagram }}</p>
             <p>Parking/Load-in Details: {{ form.parking_details }}</p>
             <p>Front of House / Seating Diagram: {{ form.audience_diagram }}</p>
@@ -17,12 +18,12 @@
             <h4>Departments</h4>
             <h5>Sound</h5>
             <p>Sound Diagram: {{ form.sound_diagram }}</p>
-            <p>Gear Installed: {{ form.houseSoundInstalled }}</p>
-            <p>Gear Available: {{ form.houseSoundAvail }}</p>
+            <p>Sound Gear Installed: {{ form.houseSoundInstalled }}</p>
+            <p>Sound/Backline Gear Available: {{ form.houseSoundAvail }}</p>
             <h5>Lights</h5>
             <p>Lighting Diagram: {{ form.lights_diagram }}</p>
-            <p>Gear Installed: {{ form.houseLightsInstalled }}</p>
-            <p>Gear Available: {{ form.houseLightsAvail }}</p>
+            <p>Lighting Gear Installed: {{ form.houseLightsInstalled }}</p>
+            <p>Lighting Gear Available: {{ form.houseLightsAvail }}</p>
             <h5>Power</h5>
             <p>Electrical Diagram: {{ form.electrics_diagram }}</p>
             <p>Circuits / LX-Battens Installed: {{ form.houseElectricInstalled }}</p>

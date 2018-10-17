@@ -21,6 +21,8 @@ class Venue(models.Model):
     manager = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="venue")
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
+    venue_pic = models.ImageField(upload_to='venue_pics',blank=True, null=True)
+    # parking
     parking_diagram = models.ImageField(upload_to='parking_diagrams',blank=True, null=True)
     parking_details = models.TextField(blank=True)
     # audience/house space

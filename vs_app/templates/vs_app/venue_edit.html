@@ -2,16 +2,41 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="container">
-    <div class="jumbotron">
-
-        <p>if logged in user = this user pk, then show this</p>
-        <h1>VENUE UPDAATE</h1>
+<div class="">
+    <div class="">
+        <h2>Update Venue Info</h2>
         
         <form enctype="multipart/form-data" method="POST">
         {% csrf_token %}
-        
-        {{ venue_form.as_p }}
+            <h4>Let's start with the basics</h4>
+            <p>Venue Name: {{ venue_form.title }}</p>
+            <p>Location: {{ venue_form.location }}</p>
+            <p>The best venue photo on Earth: {{ venue_form.venue_pic }}</p>
+            <p>Parking/Load-in Diagram: {{ venue_form.parking_diagram }}</p>
+            <p>Parking/Load-in Details: {{ venue_form.parking_details }}</p>
+            <p>Front of House / Seating Diagram: {{ venue_form.audience_diagram }}</p>
+            <p>Front of House / Seating Details: {{ venue_form.audience_details }}</p>
+            <h4>Departments</h4>
+            <h5>Sound</h5>
+            <p>Sound Diagram: {{ venue_form.sound_diagram }}</p>
+            <p>Sound Gear Installed: {{ venue_form.houseSoundInstalled }}</p>
+            <p>Sound/Backline Gear Available: {{ venue_form.houseSoundAvail }}</p>
+            <h5>Lights</h5>
+            <p>Lighting Diagram: {{ venue_form.lights_diagram }}</p>
+            <p>Lighting Gear Installed: {{ venue_form.houseLightsInstalled }}</p>
+            <p>Lighting Gear Available: {{ venue_form.houseLightsAvail }}</p>
+            <h5>Power</h5>
+            <p>Electrical Diagram: {{ venue_form.electrics_diagram }}</p>
+            <p>Circuits / LX-Battens Installed: {{ venue_form.houseElectricInstalled }}</p>
+            <p>Gear Available: {{ venue_form.houseElectricAvail }}</p>
+            <h5>Stage</h5>
+            <p>Stage/Rigging Diagram: {{ venue_form.stage_diagram }}</p>
+            <p>Stage / Rigging Installed: {{ venue_form.houseStageInstalled }}</p>
+            <p>Gear Available: {{ venue_form.houseStageAvail }}</p>
+            <h5>Backstage / Artist Accommodations</h5>
+            <p>Backstage Diagram: {{ venue_form.backstage_diagram }}</p>
+            <p>Facilities: {{ venue_form.houseBackInstalled }}</p>
+            <p>Gear Available: {{ venue_form.houseBackAvail }}</p>
             <input type="submit" name="" value="Update" class = 'zoom'>
         </form>
         

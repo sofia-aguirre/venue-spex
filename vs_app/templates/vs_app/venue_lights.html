@@ -5,13 +5,18 @@
         
 <h3>LIGHTS DEPT</h3>
 
-{% if venue.lights_diagram %}
-    <img src="{{ venue.lights_diagram.url }}" width='100px' height='100px' alt="">
-    {% else %}
-    <p>no lighting diagram available</p>
-{% endif %}
+<div class="dept-details">
+    <h4>Lighting plot:</h4>
+    {% if venue.lights_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.lights_diagram.url }}" alt="">
+        {% else %}
+        <p>no lighting diagram available</p>
+    {% endif %}
 
-<p>lights installed: {{venue.houseLightsInstalled}}</p>
-<p>lights equipment available for rent: {{venue.houseLightsAvail}}</p>
+    <h4>Lighting gear installed:</h4> 
+        <p>{{venue.houseLightsInstalled}}</p>
+    <h4>Extra lighting available: </h4>
+        <p>{{venue.houseLightsAvail}}</p>
+</div>
 
 {% endblock %}
