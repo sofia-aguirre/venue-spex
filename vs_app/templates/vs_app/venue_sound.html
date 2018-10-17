@@ -4,14 +4,17 @@
 {% block dept %}
         
 <h3>SOUND DEPT</h3>
+<div class="dept-details">
+    <h4>Sound lines:</h4>
+    {% if venue.sound_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.sound_diagram.url }}" alt="">
+        {% else %}
+        <p>no sound image available</p>
+    {% endif %}
 
-{% if venue.sound_diagram %}
-    <img src="{{ venue.sound_diagram.url }}" width='100px' height='100px' alt="">
-    {% else %}
-    <p>no sound image available</p>
-{% endif %}
-
-<p>sound installed: {{venue.houseSoundInstalled}}</p>
-<p>sound equipment available for rent: {{venue.houseSoundAvail}}</p>
-
+    <h4>Sound gear installed:</h4>
+        <p>{{venue.houseSoundInstalled}}</p>
+    <h4>Sound + Backline gear available:</h4>
+        <p>{{venue.houseSoundAvail}}</p>
+</div>
 {% endblock %}

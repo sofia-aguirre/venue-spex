@@ -3,12 +3,13 @@
 <html>
     <head>
         <title>VenueSpex</title>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Raleway" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
         <div class="all-the-header">
             <header>
-                <a href="/"><h1>VenueSpex</h1></a>
+                <a href="/"><h1 id="logo">VenueSpex</h1></a>
                 {% if user.is_authenticated %}
                 <p>Welcome back, 
                         <a href="{% url 'user_detail' pk=request.user.pk %}">{{request.user.username}}</a> </p>
@@ -29,5 +30,8 @@
             
             {% endblock %}
         </div>
+        <!-- <div class="footer">
+            <p>by Sofia Aguirre 2018 - <a>GitHub</a></p>
+        </div> -->
     </body>
 </html>

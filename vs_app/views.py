@@ -104,6 +104,10 @@ def venue_detail(request, pk):
     # 'comments':comments
     })
 
+def venue_logistics(request, pk):
+    venue = Venue.objects.get(id=pk)
+    return render(request, 'vs_app/venue_logistics.html', {'venue': venue})
+
 def venue_sound(request, pk):
     venue = Venue.objects.get(id=pk)
     return render(request, 'vs_app/venue_sound.html', {'venue': venue})

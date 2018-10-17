@@ -2,17 +2,17 @@
 {% load staticfiles %}
 {% block content %}
 
-<h2>all comments </h2>
+<h2>All comments by users</h2>
+<div class="comment-list">
 <ul>
-
     {% for comment in comments %}
     <li>
-        <p>Comment for: {{ comment.venue }}</p>
-        <p><a href="{% url 'comment_detail' pk=comment.pk %}">{{ comment.title }}</a></p>
+        @{{ comment.venue }}
+        - <a href="{% url 'comment_detail' pk=comment.pk %}">{{ comment.title }}</a>
         </li>
     {% endfor %}
-
 </ul>
+</div>
 
 {% endblock %}
 

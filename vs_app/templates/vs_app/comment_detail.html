@@ -2,12 +2,19 @@
 {% load staticfiles %}
 
 {% block content %}
-<div>
+<div class="comment-detail">
     <h2>Comment for {{ comment.venue }}</h2>
         <ul>
-            <li>{{ comment.commenter }}
-                {{ comment.title }}
-                {{ comment.body }}</li>
+            <li>
+                <h4>{{ comment.title }}</h4>
+                <p>"{{ comment.body }}"</p>
+                <p><em>- {{ comment.commenter }}</em></p>
+                {% if comment.commenter.user.username == request.user.username%}
+                    <p>
+                        <a href="{% url 'comment_edit' pk=comment.pk %}">(edit this comment)</a> - <a href="{% url 'comment_delete' pk=comment.pk %}">(delete this comment)</a>
+                    </p>
+                    {% endif %}
+            </li>
         </ul>
 </div>
     {% endblock %}

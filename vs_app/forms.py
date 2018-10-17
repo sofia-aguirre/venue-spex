@@ -20,7 +20,7 @@ class VenueForm(ModelForm):
 
     class Meta:
         model = Venue
-        fields = ('title', 'location', 'parking_diagram',
+        fields = ('title', 'location', 'venue_pic', 'parking_diagram',
         'parking_details', 'audience_diagram', 'audience_details', 
         'houseSoundInstalled','houseSoundAvail', 'sound_diagram', 
         'houseElectricInstalled', 'houseElectricAvail', 'electrics_diagram',

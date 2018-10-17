@@ -1,0 +1,32 @@
+{% extends 'vs_app/venue_detail.html' %}
+{% load staticfiles %}
+
+{% block dept %}
+        
+<h3>Parking + FoH</h3>
+
+<div class="dept-details">
+    <h4>Parking diagram:</h4>
+    {% if venue.parking_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.parking_diagram.url }}" alt="">
+        {% else %}
+        <p>(no image available yet)</p>
+    {% endif %}
+
+    <h4>Parking details:</h4>
+        <p> {{venue.parking_details}}</p>
+</div>
+
+<div class="dept-details">
+    <h4>Front of House diagram:</h4>
+    {% if venue.audience_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.audience_diagram.url }}" alt="">
+        {% else %}
+        <p>(no image available yet)</p>
+    {% endif %}
+        
+    <h4>Front of House details:</h4>
+        <p> {{venue.audience_details}}</p>
+</div>
+
+{% endblock %}

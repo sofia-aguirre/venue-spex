@@ -24,10 +24,11 @@ MEDIA_DIR = os.path.join(BASE_DIR,'vs_app/media')
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'aowbowgb2038r8248429urjfdFA#@V%WU^B%^@V%#!ECFV%B^$V%#C'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 

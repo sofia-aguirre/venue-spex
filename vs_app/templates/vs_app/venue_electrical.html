@@ -5,13 +5,18 @@
         
 <h3>ELECTRICAL DEPT</h3>
 
-{% if venue.electrics_diagram %}
-    <img src="{{ venue.electrics_diagram.url }}" width='100px' height='100px' alt="">
-    {% else %}
-    <p>no electrical image available</p>
-{% endif %}
+<div class="dept-details">
+    <h4>Circuits diagram:</h4>
+    {% if venue.electrics_diagram %}
+        <img class="venue-dept-pic" src="{{ venue.electrics_diagram.url }}" alt="">
+        {% else %}
+        <p>no electrical image available</p>
+    {% endif %}
 
-<p>power installed: {{venue.houseElectricInstalled}}</p>
-<p>power equipment available for rent: {{venue.houseElectricAvail}}</p>
+    <h4>Power details:</h4>
+        <p>{{venue.houseElectricInstalled}}</p>
+    <h4>Extra power equipment available:</h4>
+        <p>{{venue.houseElectricAvail}}</p>
+</div>
 
 {% endblock %}

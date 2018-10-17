@@ -26,6 +26,7 @@ urlpatterns = [
     path('venues/<int:pk>/edit', views.venue_edit, name='venue_edit'),
     path('venues/<int:pk>/delete', views.venue_delete, name='venue_delete'),
     # venue department views
+    path('venues/<int:pk>/foh', views.venue_logistics, name='venue_logistics'),
     path('venues/<int:pk>/sound', views.venue_sound, name='venue_sound'),
     path('venues/<int:pk>/lights', views.venue_lights, name='venue_lights'),
     path('venues/<int:pk>/power', views.venue_electrical, name='venue_electrical'),
